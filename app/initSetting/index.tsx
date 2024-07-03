@@ -13,16 +13,70 @@ import {
 
 export default function SignIn() {
   const [inputState, setInputState] = useState({
+    name: "",
     height: "",
     weight: "",
     age: "",
   });
 
-  const handleInputChange = (field, value) => {
+  const [allergyAry, setAllergyAry] = useState([
+    { name: "알류", isSelected: false },
+    { name: "우유", isSelected: false },
+    { name: "밀", isSelected: false },
+    { name: "새우", isSelected: false },
+    { name: "게", isSelected: false },
+    { name: "고등어", isSelected: false },
+    { name: "호두", isSelected: false },
+    { name: "돼지고기", isSelected: false },
+    { name: "땅콩", isSelected: false },
+    { name: "조개류", isSelected: false },
+    { name: "복숭아", isSelected: false },
+    { name: "메밀", isSelected: false },
+    { name: "대두", isSelected: false },
+    { name: "잣", isSelected: false },
+    { name: "토마토", isSelected: false },
+    { name: "쇠고기", isSelected: false },
+    { name: "닭고기", isSelected: false },
+    { name: "홍합", isSelected: false },
+    { name: "전복", isSelected: false },
+    { name: "굴", isSelected: false },
+    { name: "오징어", isSelected: false },
+    { name: "아황산류", isSelected: false },
+  ]);
+  const [favoritFoods, setFavoriteFoods] = useState([
+    { name: "된장찌개", isSelected: false },
+    { name: "김치볶음밥", isSelected: false },
+    { name: "불고기", isSelected: false },
+    { name: "계란말이", isSelected: false },
+    { name: "파전", isSelected: false },
+    { name: "닭갈비", isSelected: false },
+    { name: "잡채", isSelected: false },
+    { name: "순두부찌개", isSelected: false },
+    { name: "삼겹살구이", isSelected: false },
+    { name: "된장국", isSelected: false },
+  ]);
+
+  const handleInputChange = (field: string, value: string) => {
     setInputState((prevState) => ({
       ...prevState,
       [field]: value,
     }));
+  };
+
+  const handleAllergyToggle = (index: number) => {
+    setAllergyAry((prevState) =>
+      prevState.map((allergy, i) =>
+        i === index ? { ...allergy, isSelected: !allergy.isSelected } : allergy
+      )
+    );
+  };
+
+  const handleFavoriteFoodsToggle = (index: number) => {
+    setFavoriteFoods((prevState) =>
+      prevState.map((food, i) =>
+        i === index ? { ...food, isSelected: !food.isSelected } : food
+      )
+    );
   };
 
   const animationValues = useRef(
@@ -70,6 +124,29 @@ export default function SignIn() {
       >
         <Text style={styles.title}>추가 정보를 입력해주세요🤟</Text>
       </Animated.View>
+      <Animated.View
+        style={{
+          width: "100%",
+          marginLeft: 50,
+          marginTop: 10,
+          marginBottom: 10,
+          transform: [
+            {
+              translateY: animationValues[1].translateY,
+            },
+          ],
+          opacity: animationValues[1].opacity,
+        }}
+      >
+        <Text style={styles.subtitle}>이름</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="김준이"
+          value={inputState.name}
+          onChangeText={(value) => handleInputChange("name", value)}
+        />
+      </Animated.View>
+
       <Animated.View
         style={{
           width: "100%",
@@ -151,12 +228,28 @@ export default function SignIn() {
         }}
       >
         <Text style={styles.subtitle}>알레르기가 있는 음식을 골라주세요.</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="23"
-          value={inputState.age}
-          onChangeText={(value) => handleInputChange("age", value)}
-        />
+        <View
+          style={{
+            width: "90%",
+            flexDirection: "row",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          {allergyAry.map((allergy, index) => (
+            <TouchableOpacity
+              key={index}
+              onPress={() => handleAllergyToggle(index)}
+              style={[
+                styles.selcircle,
+                allergy.isSelected && styles.selectedCircle,
+              ]}
+            >
+              <Text>{allergy.name}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
       </Animated.View>
       <Animated.View
         style={{
@@ -173,12 +266,28 @@ export default function SignIn() {
         }}
       >
         <Text style={styles.subtitle}>선호하는 음식을 골라주세요.</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="23"
-          value={inputState.age}
-          onChangeText={(value) => handleInputChange("age", value)}
-        />
+        <View
+          style={{
+            width: "90%",
+            flexDirection: "row",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          {favoritFoods.map((food, index) => (
+            <TouchableOpacity
+              style={[
+                styles.selcircle,
+                food.isSelected && styles.selectedCircle,
+              ]}
+              key={index}
+              onPress={() => handleFavoriteFoodsToggle(index)}
+            >
+              <Text>{food.name}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
       </Animated.View>
       <Animated.View
         style={{
@@ -197,7 +306,7 @@ export default function SignIn() {
         <Text style={styles.subtitle}>초대 코드가 있다면 넣어주세요!</Text>
         <TextInput
           style={styles.input}
-          placeholder="23"
+          placeholder="초대 코드를 입력해주세요."
           value={inputState.age}
           onChangeText={(value) => handleInputChange("age", value)}
         />
@@ -272,5 +381,18 @@ const styles = StyleSheet.create({
     fontSize: 25,
     textAlign: "center",
     color: greyColor,
+  },
+  selcircle: {
+    borderRadius: 100,
+    backgroundColor: "#e9e9e9",
+    width: "auto",
+    paddingHorizontal: 10,
+    height: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 5,
+  },
+  selectedCircle: {
+    backgroundColor: "#00e599",
   },
 });
