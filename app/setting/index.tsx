@@ -48,7 +48,7 @@ export default function Page() {
             width: "100%",
           }}
         >
-          <Text style={styles.title}>설정</Text>
+          <Text style={styles.title}>메뉴</Text>
         </Animated.View>
         <Animated.View
           style={{
@@ -57,7 +57,9 @@ export default function Page() {
             width: "100%",
           }}
         >
-          <Text style={styles.subtitle}>구성원 설정하기</Text>
+          <TouchableOpacity onPress={() => router.push("/weeklyRecipe")}>
+            <Text style={styles.subtitle}>식단 모아보기</Text>
+          </TouchableOpacity>
         </Animated.View>
         <Animated.View
           style={{
