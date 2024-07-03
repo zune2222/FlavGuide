@@ -1,50 +1,14 @@
-# Welcome to your Expo app 👋
+# FlavGuide 플래브가이드
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+"FlavGuide"는 "Flavor Guide"의 축약형으로 해석할 수 있습니다. "Flavor"는 맛이라는 뜻이며, "Guide"는 안내자나 지침을 의미합니다. 따라서 "FlavGuide"는 "맛 안내자"나 "맛 지침서"로 해석할 수 있습니다.
 
-## Get started
+### 플래브 가이드 ?
 
-1. Install dependencies
+- 첫 번째 플래브 가이드의 목적은 자취생이나 주부와 같이 밥을 직접 만들어 먹어야 하는 사람들이 매일 무엇을 먹을지에 대한 고민을 해결하는 데 있습니다. 또한, 이러한 음식 선택이 건강에 미치는 영향과 식단 구성에 대한 지침, 정해진 예산 내에서 가성비 있게 식단을 구성하는 방법 등을 안내하여 사용자가 더 건강하고 지속 가능한 식단을 구성할 수 있도록 도움을 주고자 합니다.
+- 두 번째로, 플래브 가이드는 사용자가 만든 식단을 실제로 요리할 때 필요한 재료와 요리 방법을 제공합니다. 주 단위로 필요한 재료 목록을 알려주며, 어떤 것들을 구매해야 하는지를 상세하게 안내합니다. 이용자들은 정해진 날짜에 장을 보러 가서 필요한 재료를 구매하면 됩니다. 미래에는 플래브 가이드를 통해 필요한 재료를 구매하는 유통 서비스로 사업을 확장할 수 있는 가능성도 고려하고 있습니다.
 
-   ```bash
-   npm install
-   ```
+[잡다한 설명](https://www.notion.so/677cfa7c60e74eb9a1ca3ee7c109398c?pvs=21)
 
-2. Start the app
+[약소한 기획](https://www.notion.so/6f442d2a8da5447e8bea3c3b7c616642?pvs=21)
 
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+[발표 자료](https://www.notion.so/5920b64c5cd94c9c96cbb55aa0e874d3?pvs=21)
